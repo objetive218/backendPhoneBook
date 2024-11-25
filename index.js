@@ -5,10 +5,10 @@ if (process.env.NODE_ENV != "production") {
 const port = process.env.PORT || 10000;
 
 const express = require("express");
-app.use(cors());
 const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
+app.use(cors()); 
 
 app.use(express.json());
 morgan.token("body", (req) => JSON.stringify(req.body));
