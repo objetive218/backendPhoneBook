@@ -2,7 +2,7 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 10000;
 
 const express = require("express");
 app.use(cors());
