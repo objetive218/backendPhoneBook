@@ -44,7 +44,7 @@ const getRandomId = () => {
   return random;
 };
 
-app.get(`${process.env.MAIN_URL}`, (req, res) => {
+app.get("/api/contacts/", (req, res) => {
   res.json(contacts);
   res.send("Welcome to the Home Page!");
 });
@@ -55,7 +55,7 @@ app.get("/info", (req, res) => {
   );
 });
 
-app.get(`${process.env.MAIN_URL}:id`, (req, res) => {
+app.get("/api/contacts/:id", (req, res) => {
   const id = Number(req.params.id);
   const contact = contacts.find((contact) => contact.id === id);
   if (contact) {
@@ -65,13 +65,13 @@ app.get(`${process.env.MAIN_URL}:id`, (req, res) => {
   }
 });
 
-app.delete(`${process.env.MAIN_URL}:id`, (req, res) => {
+app.delete("/api/contacts/:id", (req, res) => {
   const id = Number(req.params.id);
   contactToDelet = contacts.filter((contact) => contact.id !== id);
   res.status(204).end();
 });
 
-app.post(`${process.env.MAIN_URL}`, (req, res) => {
+app.post("/api/contacts/", (req, res) => {
   const body = req.body;
   const findName = contacts.find((e) => body.name === e.name);
 
