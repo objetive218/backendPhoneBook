@@ -2,6 +2,8 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
+const port = process.env.PORT || 3001;
+
 const express = require("express");
 app.use(cors());
 const morgan = require("morgan");
@@ -92,6 +94,6 @@ app.post(`${process.env.MAIN_URL}`, (req, res) => {
   res.json(newContact);
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("running");
 });
